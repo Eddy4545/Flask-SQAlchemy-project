@@ -1,0 +1,25 @@
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Environment variables and secrets
+.env
+
+# Flask instance folder
+instance/
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
