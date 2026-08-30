@@ -1,80 +1,54 @@
-# Contact Manager Frontend
+# Contact Manager Project
 
-This is the React + Vite frontend for a simple contact management app. It allows users to view, create, update, and delete contacts by talking to the Flask backend API.
+This project is a simple full-stack contact management app built with a Flask backend and a React frontend. It allows a user to create, view, update, and delete contacts through a browser interface while storing the records in a SQLite database.
 
-## Features
+## Project Overview
 
-- View all contacts in a table
-- Create a new contact
-- Update an existing contact
-- Delete a contact
-- Modal-based form for create/edit flows
-- Live refresh after create, update, or delete actions
+The application is split into two main parts:
 
-## Tech Stack
+- Backend: Python + Flask + SQLAlchemy
+- Frontend: React + Vite
 
-- React
-- Vite
-- JavaScript
-- Fetch API for backend communication
+Together, they form a basic CRUD application where the frontend sends HTTP requests to the backend API and the backend persists the data in SQLite.
 
-## Project Structure
 
-```bash
-frontend/
-├── public/
-├── src/
-│   ├── App.jsx
-│   ├── ContactForm.jsx
-│   ├── ContactList.jsx
-│   ├── App.css
-│   ├── index.css
-│   └── main.jsx
-├── index.html
-├── package.json
-├── vite.config.js
-├── eslint.config.js
-└── README.md
-```
+### Frontend Responsibilities
 
-## Prerequisites
+- Render the contact list
+- Show the create/edit form in a modal
+- Send requests to the backend API
+- Refresh data after create, update, and delete actions
 
-Before running the frontend, make sure:
+### Frontend Setup
 
-- Node.js is installed
-- The backend is running on `http://127.0.0.1:5000`
-- Dependencies are installed using `npm install`
-
-## Installation
-
-From the frontend folder:
+From the `frontend` folder:
 
 ```bash
 npm install
-```
-
-## Run the app
-
-```bash
 npm run dev
 ```
 
-This starts the Vite development server, usually at:
+This usually runs the app at:
 
 ```bash
 http://localhost:5173
 ```
 
-## Backend API Expectations
+### Backend Responsibilities
 
-The frontend expects the backend to expose these routes:
+- Expose API routes for contact operations
+- Validate incoming request data
+- Store and retrieve contact records from SQLite
+- Return JSON responses to the frontend
 
-- `GET /contacts`
-- `POST /create_contact`
-- `PATCH /update_contact/:id`
-- `DELETE /delete_contact/:id`
+### Backend Routes
 
-The app sends JSON payloads like:
+- `GET /contacts` — fetch all contacts
+- `POST /create_contact` — create a contact
+- `PATCH /update_contact/<id>` — update a contact
+- `DELETE /delete_contact/<id>` — delete a contact
+
+### Example Payload
 
 ```json
 {
@@ -84,21 +58,28 @@ The app sends JSON payloads like:
 }
 ```
 
-## Scripts
+### Backend Setup
+
+From the project root or the `Backend` folder, install the Python dependencies and run the app:
 
 ```bash
-npm run dev     # start development server
-npm run build   # build production bundle
-npm run preview # preview production build
-npm run lint    # run ESLint checks
+pip install flask flask_sqlalchemy flask_cors
+python main.py
+```
+
+The backend runs on:
+
+```bash
+http://127.0.0.1:5000
 ```
 
 ## Notes
 
-- The frontend is configured for local development and expects the Flask backend to be running separately.
-- CORS must be enabled in the backend so browser requests succeed.
-- If the backend URL changes, update the fetch calls in the React components.
+- The frontend and backend are meant to run at the same time.
+- The backend enables CORS so the browser can call the API from the React app.
+- The database used is SQLite, which is stored locally in the project.
 
-## License
+## Intent
 
-This project is for local learning/demo purposes.
+This project is intended for learning and local development purposes.
+
