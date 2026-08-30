@@ -19,14 +19,14 @@ const ContactList = ({contacts, updateContact, updateCallback}) => {
     return <div>
         <h2>Contacts</h2>
         <table>
-            <thread>
+            <thead>
                 <tr>
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Email</th>
                     <th>Actions</th>
                 </tr>
-            </thread>
+            </thead>
             <tbody>
                 {contacts.map((contact) => (
                     <tr key={contact.id}>
